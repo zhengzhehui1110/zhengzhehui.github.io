@@ -480,10 +480,7 @@ post:
   banner_img: /img/default.png
   banner_img_height: 70
   banner_mask_alpha: 0.3
-
-  # 文章在首页的默认封面图，当没有指定 index_img 时会使用该图片，若两者都为空则不显示任何图片
-  # Path of the default post cover when `index_img` is not set. If both are empty, no image will be displayed
-  default_index_img:
+  default_index_img: /img/favicon.png
 
   # 文章标题下方的元信息
   # Meta information below title
@@ -614,11 +611,11 @@ post:
   # 评论插件
   # Comment plugin
   comments:
-    enable: false
+    enable: true
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo
-    type: disqus
+    type: valine
 
 
 #---------------------------
@@ -680,9 +677,9 @@ gitalk:
 # Based on LeanCloud
 # See: https://valine.js.org/configuration.html
 valine:
-  appid:
-  appkey:
-  placeholder: 说点什么
+  appid: B15AP3vVz8x4XQkIgXvV5hNV-gzGzoHsz
+  appkey: 6f3X9tSEFFhxuVMa45XG2p5Q
+  placeholder: 你喜欢聊天吗
   path: window.location.pathname
   avatar: retro
   meta: ['nick', 'mail', 'link']
@@ -690,7 +687,7 @@ valine:
   lang: zh-CN
   highlight: false
   recordIP: false
-  serverURLs:
+  serverURLs: https://b15ap3vv.lc-cn-n1-shared.com
 
 # Waline
 # 一款从 Valine 衍生的带后端的评论插件

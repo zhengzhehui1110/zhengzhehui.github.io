@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://zhengzhehui1110.github.io/zhengzhehui.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -105,3 +105,12 @@ deploy:
   type: 'git'
   repo: git@github.com:zhengzhehui1110/zhengzhehui.github.io.git
   branch: master
+
+# hexo-tag-cloud
+tag_cloud:
+    textFont: Trebuchet MS, Helvetica
+    textColor: '#333'
+    textHeight: 15
+    outlineColor: '#E2E1D1'
+    maxSpeed: 0.5
+    pauseOnSelected: false # true 意味着当选中对应 tag 时,停止转动
