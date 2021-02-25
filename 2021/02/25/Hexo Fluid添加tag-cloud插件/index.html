@@ -1,0 +1,494 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/zhengzhehui.github.io/img/favicon.png">
+  <link rel="icon" type="image/png" href="/zhengzhehui.github.io/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Zhehui Zheng">
+  <meta name="keywords" content="">
+  <title>Hexo Fluid添加tag-cloud插件 - Zhehui&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/zhengzhehui.github.io/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/zhengzhehui.github.io/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"zhengzhehui1110.github.io","root":"/zhengzhehui.github.io/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/zhengzhehui.github.io/js/utils.js" ></script>
+  <script  src="/zhengzhehui.github.io/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/zhengzhehui.github.io/">&nbsp;<strong>Zhehui Zheng</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/zhengzhehui.github.io/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/zhengzhehui.github.io/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/zhengzhehui.github.io/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/zhengzhehui.github.io/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/zhengzhehui.github.io/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/zhengzhehui.github.io/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Hexo Fluid添加tag-cloud插件">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-25 20:29" pubdate>
+        2021年2月25日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      16
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Hexo Fluid添加tag-cloud插件</h1>
+            
+            <div class="markdown-body">
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>官方文档：<a target="_blank" rel="noopener" href="https://github.com/D0n9X1n/hexo-tag-cloud/blob/master/README.ZH.md">https://github.com/D0n9X1n/hexo-tag-cloud/blob/master/README.ZH.md</a></p>
+<p>在搭建博客的过程中无意间看到某个大佬的博客有很炫酷的动态标签云，瞬间心动了，于是决定自己也安装一个。tag-cloud插件比较特殊，根据官方文档，它需要将一段代码替换原本的标签云。而标签云的代码位置可能会根据主题、模板引擎、插件安装方式的不同而有较大差异。</p>
+<p>虽然Fluid不算冷门的主题，但是看了若干技术博客，并没有Fluid+tag-cloud的相关教程，官方文档给出的代码替换方式也和我的实际操作有所不同，故写此篇博客以供参考。</p>
+<ul>
+<li>hexo v5.0</li>
+<li>npm安装所有插件</li>
+</ul>
+<h2 id="确认模板引擎"><a href="#确认模板引擎" class="headerlink" title="确认模板引擎"></a>确认模板引擎</h2><p>通过npm安装主题，主题文件在<code>node_modules\hexo-theme-fluid\</code>中，查看代码文件发现后缀都是ejs，因此是ejs引擎。</p>
+<p>选取这段代码备用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&lt;% if (site.tags.length) &#123; %&gt;<br>  &lt;script type&#x3D;&quot;text&#x2F;javascript&quot; charset&#x3D;&quot;utf-8&quot; src&#x3D;&quot;&lt;%- url_for(&#39;&#x2F;js&#x2F;tagcloud.js&#39;) %&gt;&quot;&gt;&lt;&#x2F;script&gt;<br>  &lt;script type&#x3D;&quot;text&#x2F;javascript&quot; charset&#x3D;&quot;utf-8&quot; src&#x3D;&quot;&lt;%- url_for(&#39;&#x2F;js&#x2F;tagcanvas.js&#39;) %&gt;&quot;&gt;&lt;&#x2F;script&gt;<br>  &lt;div class&#x3D;&quot;widget-wrap&quot;&gt;<br>    &lt;h3 class&#x3D;&quot;widget-title&quot;&gt;&lt;%&#x3D; __(&#39;tagcloud&#39;) %&gt;&lt;&#x2F;h3&gt;<br>    &lt;div id&#x3D;&quot;myCanvasContainer&quot; class&#x3D;&quot;widget tagcloud&quot;&gt;<br>      &lt;canvas width&#x3D;&quot;250&quot; height&#x3D;&quot;250&quot; id&#x3D;&quot;resCanvas&quot; style&#x3D;&quot;width:100%&quot;&gt;<br>        &lt;%- tagcloud() %&gt;<br>      &lt;&#x2F;canvas&gt;<br>    &lt;&#x2F;div&gt;<br>  &lt;&#x2F;div&gt;<br>&lt;% &#125; %&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="确认代码修改位置"><a href="#确认代码修改位置" class="headerlink" title="确认代码修改位置"></a>确认代码修改位置</h2><p>打开博客的标签页面，按F12打开控制台进行元素审查，发现标签云是一个<code>class=&quot;text-center tagcloud&quot;</code>的元素。在工程文件中全局搜索这两个类，最后确定标签云在这个文件中：<code>node_modules\hexo-theme-fluid\layout\tags.ejs</code></p>
+<p>打开文件，标签云的代码长这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&lt;%- tagcloud(&#123;<br>    min_font: min_font,<br>    max_font: max_font,<br>    amount: 999,<br>    unit: unit,<br>    color: true,<br>    start_color,<br>    end_color<br>  &#125;) %&gt;<br></code></pre></td></tr></table></figure>
+
+<p>直接把这段代码注释掉，替换成上一段代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&lt;div class&#x3D;&quot;text-center tagcloud&quot;&gt;<br>  &lt;!-- &lt;%- tagcloud(&#123;<br>    min_font: min_font,<br>    max_font: max_font,<br>    amount: 999,<br>    unit: unit,<br>    color: true,<br>    start_color,<br>    end_color<br>  &#125;) %&gt; --&gt;<br>  &lt;% if (site.tags.length) &#123; %&gt;<br>    &lt;script type&#x3D;&quot;text&#x2F;javascript&quot; charset&#x3D;&quot;utf-8&quot; src&#x3D;&quot;&lt;%- url_for(&#39;&#x2F;js&#x2F;tagcloud.js&#39;) %&gt;&quot;&gt;&lt;&#x2F;script&gt;<br>    &lt;script type&#x3D;&quot;text&#x2F;javascript&quot; charset&#x3D;&quot;utf-8&quot; src&#x3D;&quot;&lt;%- url_for(&#39;&#x2F;js&#x2F;tagcanvas.js&#39;) %&gt;&quot;&gt;&lt;&#x2F;script&gt;<br>    &lt;div class&#x3D;&quot;widget-wrap&quot;&gt;<br>      &lt;h3 class&#x3D;&quot;widget-title&quot;&gt;&lt;%&#x3D; __(&#39;tagcloud&#39;) %&gt;&lt;&#x2F;h3&gt;<br>      &lt;div id&#x3D;&quot;myCanvasContainer&quot; class&#x3D;&quot;widget tagcloud&quot;&gt;<br>        &lt;canvas width&#x3D;&quot;250&quot; height&#x3D;&quot;250&quot; id&#x3D;&quot;resCanvas&quot; style&#x3D;&quot;width:100%&quot;&gt;<br>          &lt;%- tagcloud() %&gt;<br>        &lt;&#x2F;canvas&gt;<br>      &lt;&#x2F;div&gt;<br>    &lt;&#x2F;div&gt;<br>  &lt;% &#125; %&gt;<br>&lt;&#x2F;div&gt;<br></code></pre></td></tr></table></figure>
+
+<p>大功告成…才怪！打开网页发现这个标签云太大了，而且似乎因为被放大，里面的标签都是高糊，在配置文件里面改了<code>font-height</code>等东西，无果。推测可能是这个组件适应了容器宽度，而恰巧Fluid的标签页容器宽度较大。</p>
+<p>F12打开控制台，找到标签云元素<code>canvas</code>，审查样式，将与尺寸有关的样式注释掉试试。当注释掉<code>width=100%</code>的时候，画面瞬间舒服了。顺便去掉了TagCloud标题。下面这段代码可以直接在Fluid里面用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&lt;% if (site.tags.length) &#123; %&gt;<br>  &lt;script type&#x3D;&quot;text&#x2F;javascript&quot; charset&#x3D;&quot;utf-8&quot; src&#x3D;&quot;&lt;%- url_for(&#39;&#x2F;js&#x2F;tagcloud.js&#39;) %&gt;&quot;&gt;&lt;&#x2F;script&gt;<br>  &lt;script type&#x3D;&quot;text&#x2F;javascript&quot; charset&#x3D;&quot;utf-8&quot; src&#x3D;&quot;&lt;%- url_for(&#39;&#x2F;js&#x2F;tagcanvas.js&#39;) %&gt;&quot;&gt;&lt;&#x2F;script&gt;<br>  &lt;div class&#x3D;&quot;widget-wrap&quot;&gt;<br>    &lt;!-- &lt;h3 class&#x3D;&quot;widget-title&quot;&gt;&lt;%&#x3D; __(&#39;tagcloud&#39;) %&gt;&lt;&#x2F;h3&gt; --&gt;<br>    &lt;div id&#x3D;&quot;myCanvasContainer&quot; class&#x3D;&quot;widget tagcloud&quot;&gt;<br>      &lt;canvas width&#x3D;&quot;250&quot; height&#x3D;&quot;250&quot; id&#x3D;&quot;resCanvas&quot;&gt;<br>        &lt;%- tagcloud() %&gt;<br>      &lt;&#x2F;canvas&gt;<br>    &lt;&#x2F;div&gt;<br>  &lt;&#x2F;div&gt;<br>&lt;% &#125; %&gt;<br></code></pre></td></tr></table></figure>
+
+<p>如果使用别的冷门主题+tag-cloud有困惑，且没有现成的技术博客的话，可以参考以上方法自力更生</p>
+<p>祝各位在搭博客的过程中武运昌隆~</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/zhengzhehui.github.io/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                      <a class="hover-with-bg" href="/zhengzhehui.github.io/categories/%E5%89%8D%E7%AB%AF/Hexo/">Hexo</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/zhengzhehui.github.io/tags/Hexo/">Hexo</a>
+                    
+                      <a class="hover-with-bg" href="/zhengzhehui.github.io/tags/tag-cloud/">tag-cloud</a>
+                    
+                      <a class="hover-with-bg" href="/zhengzhehui.github.io/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('vcomments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "B15AP3vVz8x4XQkIgXvV5hNV-gzGzoHsz",
+          app_key: "6f3X9tSEFFhxuVMa45XG2p5Q",
+          placeholder: "你喜欢聊天吗",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "https://b15ap3vv.lc-cn-n1-shared.com",
+        });
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments powered by Valine.</a>
+  </noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/zhengzhehui.github.io/js/debouncer.js" ></script>
+<script  src="/zhengzhehui.github.io/js/events.js" ></script>
+<script  src="/zhengzhehui.github.io/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/zhengzhehui.github.io/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/zhengzhehui.github.io/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/zhengzhehui.github.io/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/zhengzhehui.github.io/js/boot.js" ></script>
+
+
+
+</body>
+</html>
