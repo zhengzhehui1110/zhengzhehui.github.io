@@ -2,20 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zhengzhehui1110.github.io/zhengzhehui.github.io/2021/02/25/Hexo%20Fluid%E6%B7%BB%E5%8A%A0tag-cloud%E6%8F%92%E4%BB%B6/</loc>
-    
-    <lastmod>2021-02-25</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhengzhehui1110.github.io/zhengzhehui.github.io/2021/02/25/hello-world/</loc>
-    
-    <lastmod>2021-02-25</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://zhengzhehui1110.github.io/zhengzhehui.github.io/about/index.html</loc>
     
     <lastmod>2021-02-25</lastmod>
@@ -31,55 +17,6 @@
   </url>
 
   
-  <url>
-    <loc>https://zhengzhehui1110.github.io/zhengzhehui.github.io/tags/Hexo/</loc>
-    <lastmod>2021-02-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhengzhehui1110.github.io/zhengzhehui.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2021-02-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhengzhehui1110.github.io/zhengzhehui.github.io/tags/test1/</loc>
-    <lastmod>2021-02-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhengzhehui1110.github.io/zhengzhehui.github.io/tags/test2/</loc>
-    <lastmod>2021-02-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
-  
-  <url>
-    <loc>https://zhengzhehui1110.github.io/zhengzhehui.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2021-02-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhengzhehui1110.github.io/zhengzhehui.github.io/categories/%E5%89%8D%E7%AB%AF/Hexo/</loc>
-    <lastmod>2021-02-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhengzhehui1110.github.io/zhengzhehui.github.io/categories/test1/</loc>
-    <lastmod>2021-02-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
   
 </urlset>
