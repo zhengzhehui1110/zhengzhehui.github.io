@@ -1,23 +1,26 @@
----
-title: Hexo Fluid添加tag-cloud插件.md
-tags: 
-- Hexo
-- 前端
+title: Hexo Fluid添加tag-cloud插件
+tags:
+
+  - Hexo
+  - 前端
 categories:
-- 前端
-- Hexo
+  - 前端
+  - Hexo
+date: 2021-02-25 20:29:00
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-## Quick Start
 
-### Create a new post
+## 前言
+tag-cloud插件比较特殊，根据官方文档，它需要将一段代码替换原本的标签云。而标签云的代码位置可能会根据主题、模板引擎的不同而有较大差异。
 
-``` bash
-$ hexo new "My New Post"
-```
+虽然Fluid不算冷门的主题，但是看了若干技术博客，并没有Fluid+tag-cloud的相关教程，官方文档给出的代码替换方式也和我的实际操作有所不同，故写此篇博客以供参考
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+- hexo v5.0
+- npm安装所有插件
+
+## 确认模板引擎
+
+
 
 ### Run server
 
